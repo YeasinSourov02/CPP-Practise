@@ -1,0 +1,26 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+int main() {
+/* aaa
+   bbb
+   ccc
+   */
+   int a=97;
+   int row;
+   cout<<"Enter Row:"<<endl;
+   cin>>row;
+   int coloum;
+   cout<<"Enter Coloum:"<<endl;
+   cin>>coloum;
+   for(int i=1;i<=row;i++){
+   for(int j=1;j<=coloum;j++){
+       cout<<(char)a;
+       
+   }
+   a++;
+   cout<<endl;
+   }
+    return 0;
+}
