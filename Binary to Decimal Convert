@@ -1,0 +1,32 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<cmath>
+using namespace std;
+int main() {
+  int binary_number;
+  cout<<"Enter Binary Number"<<endl;
+  cin>>binary_number;
+  int decimal_number=0;
+  int count=0;
+  int last_digit;
+  int flag=1;
+  while(binary_number!=0){
+      last_digit=binary_number%10;
+      decimal_number=decimal_number+last_digit*pow(2,count);
+      count++;
+      binary_number=binary_number/10;
+      if(last_digit!= 0 && last_digit!=1){
+          flag=0;
+          break;
+      }
+  }
+  if(flag==0){
+      cout<<"Error";
+  }
+  else{
+      
+  
+  cout<<"Decimal Number is:"<<decimal_number;
+  }
+    return 0;
+}
