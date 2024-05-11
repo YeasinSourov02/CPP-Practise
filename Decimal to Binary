@@ -1,0 +1,18 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<cmath>
+using namespace std;
+int main() {
+ int decimal=8;
+ int ans=0;
+ int power=1;
+ int remainder;
+ while(decimal!=0){
+     remainder=decimal%2;
+     ans=ans+remainder*power;
+     power=power*10;
+     decimal=decimal/2;
+ }
+ cout<<"Binary= "<<ans;
+    return 0;
+}
