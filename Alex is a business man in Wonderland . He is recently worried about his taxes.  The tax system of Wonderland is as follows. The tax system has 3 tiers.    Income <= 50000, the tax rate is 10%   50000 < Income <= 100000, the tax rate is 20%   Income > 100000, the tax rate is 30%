@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std; 
+    
+int main(){
+ int income;
+ cin>>income;
+ if(income<1 && income>pow(10,9)){
+    cout<<"Error";
+    return 1;
+ }
+ int tax;
+ if(income<=50000){
+    tax=(income)*10/100;
+ }   
+ else if(income>50000 && income<=100000){
+    tax=(50000)*10/100+(income-50000)*20/100;
+ }
+ else if(income>100000){
+    tax=(50000)*10/100+(50000)*20/100+(income-100000)*30/100;
+ }
+    cout<<tax;
+}
