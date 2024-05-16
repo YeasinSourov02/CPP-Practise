@@ -1,0 +1,15 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int square(int a);
+int main() {
+    int x;
+    int y;
+    cin>>x>>y;
+    int result=square(x)+square(y);
+    cout<<result;
+    return 0;
+}
+int square(int a){
+    return a*a;
+}
