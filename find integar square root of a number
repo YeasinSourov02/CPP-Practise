@@ -1,0 +1,22 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+  int number;
+  cin>>number;
+  int root=0;
+  int i=1;
+  int num=0;
+  
+  while(num<number){
+      num=i*i;
+     if(num>number){
+         break;
+     }
+      root=i;
+       i++;
+  }
+
+cout<<root;
+    return 0;
+}
