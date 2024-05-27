@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    vector<int>v(5);
+    cout<<"Enter elements"<<endl;
+    for(int i=0;i<v.size();i++){
+
+        cin>>v[i];
+    }
+    for(int i=0;i<v.size()-1;i++){
+        int min=INT_MAX;
+        int minindx=-1;
+        for (int  j = i; j <v.size(); j++){
+            if(min>v[j]){
+                min=v[j];
+                minindx=j;
+            }
+        }
+//2 3 5 4 1= 1 2 3 4 5
+        swap(v[i],v[minindx]);
+    }
+    for(int i=0;i<v.size();i++){
+        cout<<v[i]<<" ";
+    }
+    cout<<endl;
+        int start=0;
+        int end=v.size()-1;
+        int mid;
+        int key;
+        cout<<"Enter Key: ";
+        cin>>key;
+        int index=-1;
+        while(start<=end){
+            mid=start+(end-start)/2;
+            if(key==v[mid]){
+                index=mid;
+                break;
+            }
+            else if(key>v[mid]){
+                start=mid+1;
+            }
+            else{
+                end=mid-1;
+            }
+        
+            }    
+        
+        cout<<index;
+}
