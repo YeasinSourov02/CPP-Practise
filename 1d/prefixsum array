@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int arr[6]={6,4,5,-3,2,8};
+int add=arr[0];
+int prefixsumarr[6];
+for(int i=0;i<6;i++){
+    if(i==0){
+        prefixsumarr[i]=arr[i];
+    }
+    else{
+        prefixsumarr[i]=add+arr[i];
+        add=add+arr[i];
+    }
+}
+for(int i=0;i<6;i++){
+    cout<<prefixsumarr[i]<<" ";
+
+}
+}
