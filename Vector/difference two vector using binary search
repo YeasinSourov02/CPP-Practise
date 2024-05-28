@@ -1,0 +1,33 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+#include<vector>
+
+int main() {
+   vector<int>arr={1,2,3,4,5};
+   int diff;
+   cin>>diff;
+   int start=0;
+   int end=arr.size()-1;
+   bool found=false;
+   while(start<end){
+     
+       if(arr[end]-arr[start]==diff){
+           cout<<"Found";
+           found=true;
+           break;
+       }
+       else if(arr[end]-arr[start]>diff){
+           end--;
+       }
+       else {
+           start++;
+   }
+   }
+   if(found==false)
+       cout<<"Not Found";
+   
+   
+
+    return 0;
+}
