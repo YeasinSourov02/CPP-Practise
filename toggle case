@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    char letter;
+    cin>>letter;
+    char ans;
+    if(letter>='a' && letter<='z'){
+        ans=letter-'a'+'A';
+    }
+    else if(letter>='A' && letter<='Z'){
+        ans=letter-'A'+'a';
+    }
+    cout<<ans;
+}
