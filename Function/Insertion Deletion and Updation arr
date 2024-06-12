@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+using namespace std;
+void insertarr(int arr[],int pos,int n,int value){
+    for(int i=n-1;i>=pos;i--){
+      arr[i+1]=  arr[i];
+    }
+    arr[pos]=value;
+    n++;
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+
+}
+void Deletion(int arr[],int pos,int n){
+    for(int i=pos;i<n;i++){
+        arr[i]=arr[i+1];
+    }
+    n--;
+    for(int i=0;i<n;i++){
+        cout<<arr[i];
+    }
+}
+    void Updation(int arr[],int pos,int n,int value){
+            if(pos>n){
+               cout<<"Wrong Input:";
+               
+            }  
+            else{
+                arr[pos]=value;
+            }
+        
+        for(int i=0;i<n;i++){
+            cout<<arr[i]<<" ";
+        }
+    
+}
+int main(){
+int n;
+cout<<"Enter Array Size: ";
+cin>>n;
+// 1 2 3 4= 1 3 2 3 4
+    int arr[n+2];
+    cout<<"Enter All The Arrays Element:"<<endl;
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int pos;
+    cout<<"Enter Array's Index Position: ";
+    cin>>pos;
+   
+    int choice;
+    cout<<"Enter Your Choice:";
+    cout<<"Press 1 for Insertion"<<endl<<"press 2 for Deletion"<<endl<<"Press 3 for Updation"<<endl;
+    
+    cin>>choice;
+    if(choice==1){
+         int value;
+    cout<<"Enter Value you want to put:";
+    cin>>value;
+    insertarr(arr,pos,n,value);
+    }
+    else if(choice==2){
+    Deletion(arr,pos,n);
+    }
+    else if(choice==3){
+        int value;
+        cout<<"Enter The value You Want To Put At the Index You choose:";
+        cin>>value;
+    Updation(arr,pos,n,value);
+        
+    }
+    else{
+        cout<<"Error";
+    }
+}
