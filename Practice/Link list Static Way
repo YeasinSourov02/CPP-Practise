@@ -1,0 +1,23 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+class Node{
+    public:
+    int data;
+    Node* next;
+};
+using namespace std;
+int main() {
+Node al;
+Node a2;
+a2.data=3;
+a2.next=NULL;
+al.data=5;
+al.next=&a2;
+
+cout<<al.data<<endl;
+cout<<al.next<<endl;
+cout<<a2.data<<endl;
+cout<<a2.next;
+    return 0;
+    
+}
