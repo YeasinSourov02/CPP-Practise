@@ -1,0 +1,25 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+int n;
+cin>>n;
+if(n<=0){
+    cout<<"Invalid Input:";
+}
+int flag=1;
+while(n!=1){
+    if(n%2==1){
+flag=0;
+        break;
+        return 1;
+    }
+   n= n/2;
+}
+if(flag==1)
+cout<<"2 power";
+else{
+    cout<<"Not 2 power";
+}
+    return 0;
+}
