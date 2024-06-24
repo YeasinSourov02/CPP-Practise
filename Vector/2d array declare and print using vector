@@ -1,0 +1,21 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+#include<vector>
+int main() {
+vector<vector<int>>matrix(3,vector<int>(3));
+for(int i=0;i<matrix.size();i++){
+    for(int j=0;j<matrix[0].size();j++){
+        cin>>matrix[i][j];
+    }
+}
+
+for(int i=0;i<matrix.size();i++){
+    for(int j=0;j<matrix[0].size();j++){
+        cout<<matrix[i][j];
+    }
+    cout<<endl;
+}
+
+    return 0;
+}
