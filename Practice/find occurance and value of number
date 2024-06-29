@@ -1,0 +1,15 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+int a=222222;
+int ld=a%10;
+int count=ld;
+while(a!=0){
+   
+    count=count+100; 
+    a=a/10;
+}
+cout<<count;
+    return 0;
+}
