@@ -1,0 +1,19 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+ string s;
+ cin>>s;
+ vector<int>alpha(26,0);
+ for(int i=0;i<s.size();i++){
+     alpha[s[i]-'a']=1;
+ }
+for(int i=0;i<26;i++){
+    if(s[i]==0){
+        cout<<"Not pangram:";
+         break;
+}
+    }
+   cout<<"Pangram";
+    return 0;
+}
