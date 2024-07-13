@@ -1,0 +1,24 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+#include<vector>
+using namespace std;
+int main() {
+ string s;
+ cin>>s;
+ string ans;
+ vector<int>alpha(26,0);
+ for(int i=0;i<s.size();i++){
+   alpha[s[i]-'a']++;
+ }
+ for(int i=25;i>=0;i--){
+     char letter=i+'a';
+     while(alpha[i]){
+         ans=ans+letter;
+         alpha[i]--;
+     }
+     
+     
+ }
+ cout<<ans;
+    return 0;
+}
