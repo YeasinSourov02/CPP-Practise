@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std; 
+    #include<vector>
+int main(){
+ string x;
+ getline(cin,x);
+ string y;
+ getline(cin,y);
+ if(x.size()!= y.size()){
+    cout<<"no";
+    return -1;
+ }
+    vector<int>check1(100,0);
+    vector<int>check2(100,0);
+    int i=0;
+    while(i<x.size()){
+        check1[x[i]-'a']++;
+        check2[y[i]-'a']++;
+        i++;
+    }
+    int flag=1;
+    for(int i=0;i<x.size();i++){
+        if(check1[i]!=check2[i]){
+            flag=0;
+            break;
+        }
+       
+    }
+    if(flag==1)
+    cout<<"yes";
+    else{
+        cout<<"no";
+    }
+}
