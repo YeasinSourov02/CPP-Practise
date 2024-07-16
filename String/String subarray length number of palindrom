@@ -1,0 +1,42 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+#include<vector>
+int main() {
+string x;
+cin>>x;
+vector<int>sl(26,0);
+vector<int>cp(26,0);
+for(int i=0;i<x.size();i++){
+    if(x[i]>='a'){
+        cp[x[i]-'a']++;
+    }
+    else if(x[i]>='A'){
+        cp[x[i]-'A']++;
+    }
+}
+int count=0;
+int check=0;
+for(int i=0;i<26;i++){
+    if(cp[i]%2==0){
+        count=count+cp[i];
+        check=1;
+    }
+    else{
+        count=count+cp[i]-1;
+        
+    }
+}
+for(int i=0;i<26;i++){
+    if(sl[i]%2==0){
+        count=count+sl[i];
+        check=1;
+    }
+    else{
+        count=count+sl[i]-1;
+        
+    }
+}
+cout<<"Highest Number of palindrom length "<<count+1;
+    return 0;
+}
