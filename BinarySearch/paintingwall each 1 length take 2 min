@@ -1,0 +1,34 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+int arr[]={5,10,30,20,15};
+int st=0,end=0,ans,mid;
+int nop=3;
+for(int i=0;i<5;i++){
+    st=max(st,arr[i]*2);
+    end=end+arr[i]*2;
+}
+while(st<=end){
+    mid=st+(end-st)/2;
+    int wlt=0;
+    int countofp=1;
+    for(int i=0;i<5;i++){
+        wlt=wlt+arr[i]*2;
+        if(wlt>mid){
+            countofp++;
+            wlt=arr[i]*2;
+        }
+    }
+    if(nop>=countofp){
+        ans=mid;
+        end=mid-1;
+    }
+    else{
+        st=mid+1;
+    }
+}
+    cout<<ans;
+
+    return 0;
+}
