@@ -1,0 +1,22 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+void clockwise(string s1,string &s2){
+       s2[0]=s1[s1.size()-1];
+   for(int i=s1.size()-1;i>0;i--){
+       s2[i]=s1[i-1];
+   }
+   cout<<s2;
+}
+int main() {
+   string s1="amazon";
+   string s2(s1.size(), ' '); 
+  //// s2[0]=s1[s1.size()-1];
+   //for(int i=s1.size()-1;i>0;i--){
+    //   s2[i]=s1[i-1];
+ //  }
+  clockwise(s1,s2);
+  cout<<endl<<s2;
+
+    return 0;
+}
