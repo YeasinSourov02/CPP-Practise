@@ -1,0 +1,45 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<vector>
+using namespace std;
+int main() {
+  string s;
+  cin>>s;
+  vector<int>lower(26,0);
+  
+ vector<int>upper(26,0);
+ for(int i=0;i<s.size();i++){
+     if(s[i]>='a' && s[i]<='z'){
+         lower[s[i]-'a']++;
+     }
+     else if(s[i]>='A' && s[i]<='Z'){
+         upper[s[i]-'A']++;
+     }
+     
+ }
+ int count=0;
+ bool add=0;
+ for(int i=0;i<26;i++){
+     if(upper[i]%2==0){
+         count+=upper[i];
+         
+     }
+     else{
+         count+=upper[i]-1;
+         add=1;
+     }
+ }
+ for(int i=0;i<26;i++){
+     if(lower[i]%2==0){
+         count+=lower[i];
+         
+     }
+     else{
+         count+=lower[i]-1;
+         add=1;
+     }
+ }
+ count=count+add;
+ cout<<count;
+    return 0;
+}
