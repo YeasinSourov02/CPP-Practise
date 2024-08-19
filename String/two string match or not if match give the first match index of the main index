@@ -1,0 +1,32 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    string s;
+    string y;
+    cin>>s;
+    cin>>y;
+    int s1=0;
+    int s2=0;
+    int len=y.size();
+    int index=-1;
+     vector<int>v(y.size());
+    while(s1<s.size() && s2<y.size()){
+        if(s[s1]==y[s2]){
+            v[s2]=s1;
+            s1++,s2++;
+            len--;
+    }
+    else{
+        s1++;
+    }
+    }
+    if(len==0){
+        cout<<"Match first index ";
+        cout<<v[0];
+    }
+  
+        
+    
+    return 0;
+}
