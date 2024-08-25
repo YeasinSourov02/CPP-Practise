@@ -1,0 +1,53 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+string reversest(string s){
+    int st=0;
+    int end=s.size()-1;
+    while(st<end){
+        swap(s[st],s[end]);
+            st++,end--;
+        }
+    
+    return s;
+}
+int lspfind(string s,vector<int>& lsp){
+    int len=0;
+    int pre=0;
+    int suff=1;
+    while(suff<s.size()){
+        if(s[pre]==s[suff]){
+            lsp[suff]=pre+1;
+             len=max(lsp[suff],len);
+        
+            pre++,suff++;
+        }
+        else{
+            if(pre==0){
+                lsp[suff]=0;
+                suff++;
+            }
+            else{
+                pre=lsp[pre-1];
+            }
+        }
+    
+    }
+    return len;
+}
+int main() {
+    string s;
+    cin>>s;
+     int len1=s.size();
+    string rev=reversest(s);
+    cout<<"reverse string:\n"<<rev;
+    s+='$';
+    s+=rev;
+    cout<<"\nadding $ after string then add reverse of it:\n "<<s<<endl;
+    vector<int>lsp(s.size(),0);
+   
+    int len2=lspfind(s,lsp);
+    int len=len1-len2;
+    cout<<"total char need to add first to make it palindrom\n"<<len;
+    return 0;
+}
