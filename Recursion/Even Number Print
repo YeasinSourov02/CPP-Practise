@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+void hb(int n) {
+    if (n <= 0) {
+        return; 
+    }
+    if (n % 2 == 0) {
+        hb(n - 2); 
+        cout << n << endl; 
+    } else {
+        hb(n - 1);
+    }
+}
+
+int main() {
+    int n;
+    cin >> n;
+    hb(n);
+
+    return 0;
+}
