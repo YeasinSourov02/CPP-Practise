@@ -1,0 +1,30 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+void subseq(int arr[],int st,int n,vector<int>&temp,vector<vector<int>>&ans){
+if(st>=n){
+    ans.push_back(temp);
+   
+    return;
+}
+subseq(arr,st+1,n,temp,ans);
+temp.push_back(arr[st]);
+subseq(arr,st+1,n,temp,ans);
+temp.pop_back();
+}
+int main() {
+ int arr[]={1,2,3};
+ int st=0;
+ int n=3;
+ vector<int>temp;
+ vector<vector<int>>ans;
+ subseq(arr,st,n,temp,ans);
+  
+ for(int i=0;i<ans.size();i++){
+     for(int j=0;j<ans[i].size();j++){
+         cout<<ans[i][j]<<" ";
+     }
+     cout<<endl;
+ }
+    return 0;
+}
