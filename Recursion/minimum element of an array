@@ -1,0 +1,16 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int  ar(int arr[],int index,int n){
+  
+      if(index==n-1){
+          return arr[index];
+  }
+   return min(arr[index],ar(arr,index+1,n));    
+}
+int main() {
+ int arr[]={7,2,4,5,9};
+ int ans=ar(arr,0,5);
+  cout<<ans;
+    return 0;
+}
