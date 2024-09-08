@@ -1,0 +1,22 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+void evennum(int n){
+    if(n<=1){
+        return;
+    }
+    if(n%2==1){
+        evennum(n-1);
+    }
+    else{
+    cout<<n<<" \n";
+    evennum(n-2);
+    }
+}
+int main() {
+    int n;
+    cin>>n;
+    evennum(n);
+
+    return 0;
+}
