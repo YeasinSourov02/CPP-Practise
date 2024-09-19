@@ -1,0 +1,20 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+void rev(string &s,int st,int end){
+    if(st>=end)
+    return;
+    char c=s[st];
+    s[st]=s[end];
+    s[end]=c;
+    rev(s,st+1,end-1);
+}
+int main() {
+    string s;
+    cin>>s;
+    int st=0;
+    int end=s.size()-1;
+    rev(s,st,end);
+    cout<<s;
+    return 0;
+}
