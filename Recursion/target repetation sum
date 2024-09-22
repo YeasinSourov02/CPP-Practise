@@ -1,0 +1,19 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int targetsum(int arr[],int indx,int n,int target){
+    if(target==0 )
+    return 1;
+    if(indx==n || target<0)
+        return 0;
+    
+    return targetsum(arr,indx+1,n,target)+ targetsum(arr,indx,n,target-arr[indx]);
+}
+int main() {
+    int arr[]={2,3,4};
+    int target;
+    cin>>target;
+    int ans=targetsum(arr,0,3,target);
+    cout<<ans;
+    return 0;
+}
