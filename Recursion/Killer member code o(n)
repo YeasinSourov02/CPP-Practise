@@ -1,0 +1,22 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int winner(int n,int k){
+    if(n==1){
+        return 0;
+        
+    }
+    return ((winner(n-1,k)+k))%n;
+}
+int main() {
+int n;
+cout<<"Enter Total Team Member:\n";
+cin>>n;
+int k;
+cout<<"Enter sequence number to kill each member:\n";
+cin>>k;
+int win=winner(n,k)+1;
+cout<<"All are death Only The survival one is:\n"<<win;
+
+    return 0;
+}
