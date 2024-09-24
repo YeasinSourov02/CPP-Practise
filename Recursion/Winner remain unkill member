@@ -1,0 +1,44 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int winner(vector<bool>&person,int n,int index,int personleft,int k){
+    if(personleft==1){
+        for(int i=0;i<n;i++){
+            if(person[i]==0){
+                return i+1;
+            }
+        }
+    }
+    int killer=(k-1)%personleft;
+    while(killer){
+        index=(index+1)%n;
+        while(person[index]==1){
+            index=(index+1)%n;
+            
+        
+        }
+        killer--;
+    
+    }
+    person[index]=1;
+    while(person[index]==1){
+        index=(index+1)%n;
+            
+    }
+    return winner(person,n,index,personleft-1,k);
+}
+int main() {
+    int n;
+    cout<<"Enter total team member: \n";
+    
+    cin>>n;
+    vector<bool>person(n,0);
+    int k;
+    printf("Enter the line sequence to kill the member:\n");
+    cin>>k;
+    int personleft=n;
+    int index=0;
+    int win=winner(person,n,index,personleft,k);
+cout<<"winner is:\n"<<win;
+    return 0;
+}
