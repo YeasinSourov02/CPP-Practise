@@ -1,0 +1,23 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+class customer{
+    public:
+  string name;
+  int* balance;
+  public:
+  customer(){
+      balance=new int;
+      *balance=10;
+      cout<<"Constructor is Called\n";
+  }
+  ~ customer(){
+      cout<<"Destructor is Called\n";
+      delete balance;
+  }
+};
+  int main(){
+    customer one;
+      cout<<*(one.balance) ;
+    return 0;
+}
