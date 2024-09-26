@@ -1,0 +1,46 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+class student{
+  string name;
+  int roll;
+  int age;
+ float cgpa;
+ public:
+ void getname(string n){
+     name=n;
+ }
+ void getroll(int r){
+     roll=r;
+ }
+ void getage(int a){
+ age=a;
+ }
+ void getcgpa(float c){
+     cgpa=c;
+ }
+ void display(){
+     cout<<"Here is the details of student s1:\n";
+     cout<<roll<<endl<<age<<endl<<name<<endl<<cgpa<<endl;
+ }
+};
+int main() {
+   student s1;
+   int r,a;
+   cout<<"Enter your roll:\n";
+   cin>>r;
+   s1.getroll(r);
+   cout<<"Enter your age:\n";
+   cin>>a;
+   s1.getage(a);
+   string n;
+   cout<<"Enter your name:\n";
+   cin>>n;
+   s1.getname(n);
+   float c;
+   cout<<"Enter your cgpa:\n";
+   cin>>c;
+   s1.getcgpa(c);
+  s1.display();
+    return 0;
+}
