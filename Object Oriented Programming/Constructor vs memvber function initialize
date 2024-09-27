@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+//constructor
+class Human {
+    public:
+    string name;
+    int age, weight;
+};
+
+class student : protected Human {
+    int roll, fees;
+    public:
+    student(string n, int a, int w) {  
+        name = n;
+        age = a;
+        weight = w;
+    }
+};
+
+int main() {
+    student a("Yeasin", 22, 56);
+    return 0;
+}
+
+
+//member function
+
+#include <iostream>
+using namespace std;
+
+class Human {
+    public:
+    string name;
+    int age, weight;
+};
+
+class student : protected Human {
+    int roll, fees;
+    public:
+    void fun(string n, int a, int w) {  
+        name = n;
+        age = a;
+        weight = w;
+    }
+};
+
+int main() {
+    student a;
+    a.fun("Yeasin", 22, 56);
+    return 0;
+}
+
+
+
+
+
+
