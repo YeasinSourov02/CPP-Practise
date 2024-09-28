@@ -1,0 +1,52 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+/* student
+boy
+girl
+male
+female
+*/
+class student{
+    public:
+    void print(){
+        cout<<"I am Student\n";
+    }
+  
+};
+class male{
+    public:
+    void maleprint(){
+        cout<<"I am a Male\n";
+    }
+};
+class Female{
+    public:
+    void Femaleprint(){
+        cout<<"I am a FEMale\n";
+    }
+};
+class boy:public student,public male{
+    public:
+    void boyprint(){
+        cout<<"I am Boy\n";
+    }
+};
+class girl:public student,public Female{
+    
+    public:
+    void girlprint(){
+        cout<<"I am Girl\n";
+    }
+};
+
+  
+   
+
+int main() {
+   girl g1;
+  g1.girlprint ();
+  g1.print();
+ 
+    return 0;
+}
