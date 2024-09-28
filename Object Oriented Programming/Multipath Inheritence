@@ -1,0 +1,51 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+//dada
+class human{
+    public:
+    string name;
+    void display(){
+        cout<<"My name is "<<name<<endl;
+    }
+};
+class engineer: public virtual human{
+    public:
+    string branch;
+//   engineer(){
+//       cout<<"Hello I am Engineer:\n";
+//   }  
+};
+class youtuber:public virtual human{
+    public:
+  int subscriber;
+//   youtuber(){
+//       cout<<"Hello I am Youtuber\n";
+//   }
+};
+class teacher:public engineer,public youtuber{
+    public:
+   int salary;
+    
+    
+    
+    teacher(string name,string branch,int subscriber,int salary){
+        this->name=name;
+         this->branch=branch;
+         this->subscriber=subscriber;
+         this->salary=salary;
+    }
+    void details(){
+        cout<<name<<endl;
+        cout<<branch<<endl;
+        cout<<subscriber<<endl;
+        cout<<salary<<endl;
+    }
+};
+
+int main() {
+   teacher a1("Yeasin","cse",1000000,2500);
+   a1.details();
+  //virtual use to understand both youtuber and engineer same
+    return 0;
+}
