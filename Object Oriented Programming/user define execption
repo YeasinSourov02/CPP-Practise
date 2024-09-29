@@ -1,0 +1,62 @@
+#include <iostream>
+#include <stdexcept>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class invalidamounterror : public runtime_error {
+public:
+    invalidamounterror(const string &msg) : runtime_error(msg) {}
+};
+
+class insufficientbalanceerror : public runtime_error {
+public:
+    insufficientbalanceerror(const string &msg) : runtime_error(msg) {}
+};
+
+class customer {
+    string name;
+    int bal;
+    int acc;
+public:
+    customer(string name, int balance, int accountno) {
+        this->name = name;
+        bal = balance;
+        acc = accountno;
+    }
+
+    void deposit(int amount) {
+        if (amount > 0) {
+            bal += amount;
+            cout << amount << " Successfully credited\n"; // Fixed typo
+        } else
+            throw runtime_error("Amount should be greater than 0\n");
+    }
+
+    void withdraw(int amount) {
+        if (amount > 0 && amount <= bal) {
+            bal -= amount;
+            cout << amount << " Successfully debited\n"; // Fixed typo
+        } else if (amount < 0) {
+            throw invalidamounterror("Amount should be greater than 0\n");
+        } else {
+            throw insufficientbalanceerror("Your Balance is low\n"); // Fixed typo
+        }
+    }
+};
+
+int main() {
+    customer c1("Yeasin", 5000, 10);
+    try {
+        c1.deposit(200);
+        c1.withdraw(6000);
+        c1.deposit(1000);
+    } catch (const invalidamounterror &e) {
+        cout << "Exception occurred: " << e.what() << endl; // Fixed typo
+    } catch (const insufficientbalanceerror &e) { // Fixed typo
+        cout << "Exception occurred: " << e.what() << endl; // Fixed typo
+    } catch (...) {
+        cout << "Exception occurred" << endl;
+    }
+    return 0;
+}
