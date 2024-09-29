@@ -1,0 +1,55 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<stdexcept>
+#include<bits/stdc++.h>
+
+ using namespace std;
+ class customer{
+     string name;
+     int bal;
+     int acc;
+     public:
+     customer(string name,int balance,int accountno){
+         this->name=name;
+         bal=balance;
+         acc=accountno;
+     }
+     void deposit(int amount){
+         if(amount>0){
+             bal+=amount;
+             cout<<amount<<"Sucessfully credit\n";
+         }
+         else
+         throw runtime_error( "Amount should be greater than 0\n");
+     }
+     void withdraw (int amount){
+         if(amount>0 && amount<=bal){
+             bal-=amount;
+             cout<<amount<<"Sucessfully debited\n";
+         }
+         else if(amount<0){
+            throw runtime_error ("Amount should be greate than 0\n");
+         }
+         else{
+             throw runtime_error("Your Balance is low\n");
+             //rutime error is a class
+         }
+     }
+ };
+int main() {
+    customer c1("Yeasin",5000,10);
+    try{
+    c1.deposit(200);
+    c1.withdraw(6000);
+    c1.deposit(1000);
+    }catch(const runtime_error &e){
+        cout<<"Execption oocured "<<e.what()<<endl;
+    }
+    catch(const bad_alloc &e){
+        cout<<"Execption oocured "<<e.what()<<endl;
+    }
+    catch(...){
+        cout<<"Execption oocured "<<endl;
+    }
+    return 0;
+}
