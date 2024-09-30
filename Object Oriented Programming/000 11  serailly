@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+int main(){
+
+
+int arr[6];
+for(int i=0;i<6;i++){
+    cin>>arr[i];
+}
+int st=0;
+int end=5;
+while(st<end){
+    if(arr[st]==1 && arr[end]!=0){
+        swap(arr[st],arr[end]);
+    }
+    else if(arr[st]!=0 && arr[end]!=1){
+        swap(arr[st],arr[end]);
+    }
+    st++,end--;
+}
+for(int i=0;i<6;i++){
+    cout<<arr[i]<<" ";
+}
+return 0;
+}
