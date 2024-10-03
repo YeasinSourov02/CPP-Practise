@@ -1,0 +1,27 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+  int arr[]={1,2,3,4,5};
+  int suffixarr[5],prefixarr[5];
+  int presum=0;
+  int suffsum=0;
+  for(int i=0;i<5;i++){
+      prefixarr[i]=presum+arr[i];
+      presum+=arr[i];
+  }
+  for(int i=0;i<5;i++){
+      cout<<prefixarr[i]<<" ";
+  }
+  cout<<endl;
+   int n=4;
+   for(int i=n;i>=0;i--){
+       suffixarr[i]=suffsum+arr[i];
+       suffsum+=arr[i];
+   }
+   for(int i=0;i<5;i++){
+      cout<<suffixarr[i]<<" ";
+  }
+
+    return 0;
+}
