@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Stack {
+public:
+    string* arr;
+    int top;
+    int size;
+
+    Stack(int val) {
+        size = val;
+        top = -1;
+        arr = new string[val];
+    }
+
+    void push(string value) {
+        if (top == size - 1) {
+            cout << "Stack overflow\n";
+            return;
+        }
+        top++;
+        arr[top] = value;
+    }
+
+    void pop() {
+        if (top == -1) {
+            cout << "Stack Underflow\n";
+            return;
+        }
+        top--;
+    }
+
+    bool isEmpty() { // Added method to check if stack is empty
+        return top == -1;
+    }
+
+    string peek() { // Added method to get the top element
+        if (top != -1) {
+            return arr[top];
+        }
+        return "-1"; // Return -1 if stack is empty
+    }
+
+    void display() {
+        if (top == -1) {
+            cout << "stack is empty\n";
+            return;
+        }
+        for (int i = 0; i <= top; i++) { // Fixed loop to display only filled elements
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    vector<string> ans(5);
+    for (int i = 0; i < ans.size(); i++) {
+        cin >> ans[i];
+    }
+
+    Stack s(5); // Corrected object creation syntax
+    for (int i = 0; i < ans.size(); i++) {
+        if (s.isEmpty()) { // Fixed method call to check if stack is empty
+            s.push(ans[i]); // Fixed push method call
+        } else if (ans[i]== s.peek()) { // Fixed peek method call
+            s.pop();
+        } else {
+            s.push(ans[i]); // Fixed push method call
+        }
+    }
+
+    s.display(); // Display the stack
+
+    return 0;
+}
