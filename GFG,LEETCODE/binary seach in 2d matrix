@@ -1,0 +1,27 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+ bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        for(int i=0;i<matrix.size();i++){
+            if(matrix[i][0]<=target && target<=matrix[i][matrix[i].size()-1]){
+                int st=0,end=matrix[i].size()-1;
+                while(st<=end){
+                    int mid=st+(end-st)/2;
+                    if(matrix[i][mid]==target){
+                        return true;
+                    }
+                    else if(matrix[i][mid]<target)
+                    st=mid+1;
+                    else end=mid-1;
+                }
+            }
+        }
+        return false;
+    }
+int main() {
+    vector<vector<int>>matrix={{1,2,3}};
+    int target=3;
+    cout<<searchMatrix( matrix, target);
+
+    return 0;
+}
