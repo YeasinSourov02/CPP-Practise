@@ -1,0 +1,27 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+ vector<int> nextGreatest(vector<int>& arr) {
+       int n=arr.size()-1;
+       vector<int>ans(arr.size(),0);
+       int maxi=INT_MIN;
+       for(int i=n;i>0;i--){
+           ans[i-1]=max(arr[i],maxi);
+           maxi=max(arr[i],maxi);
+           
+       }
+            ans[n]=-1;    
+          return ans;
+            
+        
+        // code here
+    }
+    
+int main() {
+    vector<int>arr={16,17,4,3,5,2};
+   vector<int>result= nextGreatest(arr) ;
+for(int i=0;i<result.size();i++){
+    cout<<result[i]<<" ";
+}
+    return 0;
+}
