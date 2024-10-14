@@ -1,0 +1,90 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class node {
+public:
+    int data;
+    node* next;
+    node(int value) {
+        data = value;
+        next = NULL;
+    }
+};
+
+class MyStack { // Renamed from 'stack' to 'MyStack'
+    node* top;
+    int size; // Variable to keep track of the stack size
+public:
+    MyStack() {
+        top = NULL;
+        size = 0; // Initialize size to 0
+    }
+
+    void push(int value) {
+        node* temp = new node(value);
+        if (temp == NULL) {
+            cout << "stack overflow\n";
+            return;
+        }
+        temp->next = top;
+        top = temp;
+        size++; // Increment size when a new element is pushed
+        cout << "Pushed " << value << " into the stack\n";
+    }
+
+    void pop() {
+        if (top == NULL) {
+            cout << "stack underflow\n";
+            return;
+        }
+        node* temp = top;
+        top = top->next;
+        delete temp;
+        size--; // Decrement size when an element is popped
+    }
+
+    int peek() {
+        if (top == NULL) {
+            cout << "Stack is empty\n";
+            return -1;
+        }
+        return top->data;
+    }
+
+    bool isEmpty() {
+        return top == NULL;
+    }
+
+    int getSize() { // Changed method name to 'getSize' for clarity
+        return size;
+    }
+
+    void insertArray(int arr[], int n) {
+        for (int i = 0; i < n; i++) {
+            push(arr[i]);
+        }
+    }
+
+    void printStack() {
+        node* temp = top;
+        while (temp != NULL) {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+        cout << "\n";
+    }
+};
+
+int main() {
+    MyStack s; // Using 'MyStack' instead of 'stack'
+    int arr[] = {1, 2, 3, 4, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    s.insertArray(arr, n);
+    s.printStack();
+
+    s.pop();
+    s.printStack();
+
+    return 0;
+}
