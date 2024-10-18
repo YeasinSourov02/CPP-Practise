@@ -1,0 +1,24 @@
+
+
+string merge (string S1, string S2)
+{
+   string ans;
+    int s1=0;
+    int s2=0;
+    while(s1<S1.size() && s2<S2.size()){
+        ans.push_back(S1[s1]);
+          ans.push_back(S2[s2]);
+          s1++,s2++;
+        
+    }
+    while(s2<S2.size()){
+        ans.push_back(S2[s2]);
+        s2++;
+    }
+    while(s1<S1.size()){
+        ans.push_back(S1[s1]);
+        s1++;
+    // your code here
+}
+return ans;
+}
