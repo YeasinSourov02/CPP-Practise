@@ -1,0 +1,25 @@
+int remAnagram(string str1, string str2)
+{
+       int size1=str1.size();
+    int size2=str2.size();
+  
+    int count=0;
+    sort(str1.begin(),str1.end());
+    sort(str2.begin(),str2.end());
+   vector<int>store1(26,0);
+   vector<int>store2(26,0);
+   for(int i=0;i<str1.size();i++){
+       store1[str1[i]-'a']++;
+   }
+   for(int i=0;i<str2.size();i++){
+        store2[str2[i]-'a']++;
+   }
+   for(int i=0;i<26;i++){
+       if(store1[i]<=store2[i])
+       count+=store2[i]-store1[i];
+       else 
+         count+=store1[i]-store2[i];
+   }
+   return count;
+// Your code goes here
+}
