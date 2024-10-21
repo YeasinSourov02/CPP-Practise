@@ -1,0 +1,25 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include<vector>
+using namespace std;
+int main() {
+    string s;
+    cin>>s;
+    vector<int>ans(26,0);
+    for(int i=0;i<s.size();i++){
+        if(ans[s[i]-'a']==0){
+            ans[s[i]-'a']=1;
+        }
+        else{
+            continue;
+        }
+    }
+    int count=0;
+    for(int i=0;i<26;i++){
+        if(ans[i]==1){
+            count=count+1;
+        }
+    }
+    cout<<count;
+    return 0;
+}
