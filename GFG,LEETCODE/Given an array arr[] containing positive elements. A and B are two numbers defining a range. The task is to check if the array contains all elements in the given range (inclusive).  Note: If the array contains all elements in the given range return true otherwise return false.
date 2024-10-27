@@ -1,0 +1,26 @@
+class Solution {
+  public:
+    bool check_elements(int arr[], int n, int A, int B) {
+        int count=0;
+        vector<int>store;
+        for(int i=A;i<=B;i++){
+            store.push_back(i);
+            count++;
+        }
+        sort(arr,arr+n);
+        int indx=0;
+        for(int i=0;i<n;i++){
+            if(store[indx]==arr[i]){
+            count--;
+            if(count==0){
+                return true;
+            }
+            indx++;
+            }
+        }
+        if(count==0)
+        return true;
+        else return false;
+        // Your code goes here
+    }
+};
