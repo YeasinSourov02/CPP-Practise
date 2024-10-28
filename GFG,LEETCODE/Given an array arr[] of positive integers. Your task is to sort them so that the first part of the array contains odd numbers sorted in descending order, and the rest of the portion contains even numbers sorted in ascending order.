@@ -1,0 +1,23 @@
+class Solution {
+  public:
+    void sortIt(vector<long long>& arr) {
+        vector<long long>odd;
+        vector<long long>even;
+        for(int i=0;i<arr.size();i++){
+            if(arr[i]%2==0){
+                even.push_back(arr[i]);
+            }
+            else odd.push_back(arr[i]);
+        }
+        sort(odd.rbegin(),odd.rend());
+        sort(even.begin(),even.end());
+      for(int i=0;i<odd.size();i++){
+          arr[i]=odd[i];
+      }
+      int k=0;
+      for(int j=odd.size();j<arr.size();j++){
+          arr[j]=even[k];
+          k++;
+      }
+    }
+};
