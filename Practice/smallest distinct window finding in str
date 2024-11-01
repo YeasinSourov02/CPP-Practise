@@ -1,0 +1,38 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+#include<vector>
+#include<algorithm>
+#include<climits>
+int main() {
+    string str;
+    cin>>str;
+    //aabccabc
+    int diff=0;
+    int fst=0;
+    int sec=0;
+    int len=INT_MAX;
+    vector<int>count(256,0);
+    for(int i=0;i<str.size();i++){
+        if(count[str[i]]==0){ diff++;
+        count[str[i]]=1;
+        }
+    }
+    fill(count.begin(),count.end(),0);
+ while(sec<str.size()){
+     while(sec<str.size() && diff){
+         if(count[str[sec]]==0) diff--;
+         count[str[sec]]++;
+         sec++;
+     }
+     len=min(len,sec-fst);
+     while(!diff){
+         len=min(len,sec-fst);
+         count[str[fst]]--;
+         if(count[str[fst]]==0) {diff++;}
+         fst++;
+     }
+ }
+ cout<<len;
+    return 0;
+}
