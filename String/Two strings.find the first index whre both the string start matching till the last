@@ -1,0 +1,47 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+#include<vector>
+void lpsfind(vector<int>&lsp,string &s2){
+    int fst=0;
+    int sec=1;
+    while(sec<s2.size()){
+        if(s2[sec]==s2[fst]){
+        lsp[sec]=fst+1;;
+        fst++,sec++;
+        }
+        else{
+            if(fst==0){
+                lsp[sec]=0;
+                sec++;
+            }
+            else{
+                fst=lsp[fst-1];
+            }
+        }
+    }
+    
+}
+int main() {
+   string s1;
+   cin>>s1;
+   string s2;
+   cin>>s2;
+   vector<int>lsp(s2.size(),0);
+   lpsfind(lsp,s2);
+int fst=0,sec=0;
+while(sec<s2.size() && fst<s1.size()){
+    if(s1[fst]==s2[sec]){
+        fst++,sec++;
+    }
+    else {
+        if(sec==0) fst++;
+        else{
+            sec=lsp[sec-1];
+        }
+    }
+}
+int ans=fst-sec;
+cout<<ans;
+    return 0;
+}
