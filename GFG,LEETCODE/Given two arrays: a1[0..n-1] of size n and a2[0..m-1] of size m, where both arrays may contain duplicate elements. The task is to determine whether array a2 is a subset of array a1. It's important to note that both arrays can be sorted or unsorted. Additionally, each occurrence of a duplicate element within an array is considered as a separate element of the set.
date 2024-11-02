@@ -1,0 +1,20 @@
+string isSubset(int a1[], int a2[], int n, int m) {
+    sort(a1,a1+n);
+    sort(a2,a2+m);
+    int fst=0,sec=0;
+    
+    while(fst<n && sec<m){
+        if(a1[fst]==a2[sec]){
+            fst++,sec++;
+              if(sec>=m)
+        return "Yes";
+            
+        }
+        else{
+        fst++;
+        }
+      
+    }
+    return "No";
+    
+}
