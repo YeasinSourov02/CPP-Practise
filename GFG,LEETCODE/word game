@@ -1,0 +1,28 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+  string s;
+  cin>>s;
+  int count=0;
+  int size=s.size();
+    if(size<=10){
+    cout<<s<<endl;
+   
+    }
+    else{
+        count=(size-2);
+    
+       string counter=to_string(count);
+         
+      string ans=s[0]+counter+s[size-1];
+     cout<<ans<<endl;
+        
+    }
+    }
+
+    return 0;
+}
