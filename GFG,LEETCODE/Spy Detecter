@@ -1,0 +1,31 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+   int n;
+   cin>>n;
+   int ui;
+   for(int i=0;i<n;i++){
+       int num;
+       cin>>num;
+       int arr[num];
+       for(int i=0;i<num;i++){
+           cin>>arr[i];
+       }
+       int common;
+       for(int i=0;i<num-1;i++){
+           if(arr[i]==arr[i+1])
+           common=arr[i];
+       }
+       for(int i=0;i<num-1;i++){
+           if(arr[i]!=arr[i+1]){
+               if(arr[i]==common){
+                   ui=i+1+1;
+               }
+               else ui=i+1;
+           }
+       }
+           cout<<ui<<endl;
+       }
+       return 0;
+}
