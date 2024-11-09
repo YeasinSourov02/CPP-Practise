@@ -1,0 +1,25 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+#include<vector>
+int main() {
+  string s1;
+  cin>>s1;
+  string s2;
+  cin>>s2;
+  s1+=s1;
+  int pre2=0;
+  int suf1=0;
+  vector<int>lps(s2.size(),0);
+  while(suf1<s1.size() && pre2<s2.size()){
+      if(s1[suf1]==s2[pre2]){
+      lps[pre2]=pre2+1;
+      pre2++,suf1++;
+      }
+      else if(pre2==0) suf1++;
+     else suf1++,pre2++;
+  }
+  if(lps[s2.size()-1]==s2.size()) cout<<1; else cout<<0;
+
+    return 0;
+}
