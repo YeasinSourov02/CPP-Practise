@@ -1,0 +1,40 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+#include<vector>
+int  find(int arr[],int index,int n,int target,vector<int>&temp,vector<vector<int>>&ans,int &key){
+    if(index==n){
+        ans.push_back(temp);
+        if(target==0) key=1;
+        
+     
+    return key ;
+    }
+    
+     find(arr,index+1,n,target,temp,ans,key);
+    temp.push_back(arr[index]);
+     find(arr,index+1,n,target-arr[index],temp,ans,key);
+    temp.pop_back();
+    return key;
+}
+int main() {
+   int arr[4];
+   for(int i=0;i<4;i++) cin>>arr[i];
+   int index=0;
+   int n=4;
+   int target;
+   cin>>target;
+   vector<int>temp;
+   vector<vector<int>>ans;
+   int key=0;
+   find(arr,index,n,target,temp,ans,key);
+   cout<<key;
+for(int i=0;i<ans.size();i++){
+    for(int j=0;j<ans[i].size();j++){
+        cout<<ans[i][j]<<" ";
+    }
+    cout<<endl;
+}
+
+    return 0;
+}
