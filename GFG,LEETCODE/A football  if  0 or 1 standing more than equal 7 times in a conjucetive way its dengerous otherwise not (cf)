@@ -1,0 +1,53 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+  string team;
+  cin>>team;
+  int count0=0;
+  int count1=0;
+  for(int i=0;i<team.size()-1;i++){
+    int  count=0;
+      if(team[i]=='0'){
+          count++;
+          
+          for(int j=i+1;j<team.size();j++){
+              if(team[j]=='0'){
+                  count++;
+              }
+                  else {
+                  break;
+              }
+              
+          }
+        
+      }
+        count0=max(count0,count);
+      
+  }
+  
+  
+  for(int i=0;i<team.size()-1;i++){
+    int  count=0;
+      if(team[i]=='1'){
+          count++;
+          
+          for(int j=i+1;j<team.size();j++){
+              if(team[j]=='1'){
+                  count++;
+              }
+                  else {
+                  break;
+              }
+              
+          }
+        
+      }
+        count1=max(count1,count);
+      
+  }
+  if(count1>=7 || count0>=7) cout<<"YES";
+  else cout<<"NO";
+  return 0;
+}    
+
