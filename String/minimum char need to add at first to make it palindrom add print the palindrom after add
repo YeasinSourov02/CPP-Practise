@@ -1,0 +1,42 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+#include<vector>
+#include<algorithm>
+int main() {
+  string s;
+  cin>>s;
+  //abc
+  string riv=s;
+  reverse(riv.begin(),riv.end());
+  string add=s+'$'+riv;
+  int lenmain=s.size();
+  vector<int>lps(add.size(),0);
+  int pre=0,suf=1;
+  int clen=0;
+  while(suf<add.size()){
+      if(add[pre]==add[suf]){
+      lps[suf]=pre+1;
+      clen=max(lps[suf],clen);
+      pre++,suf++;
+      }
+      else if(pre==0){
+          lps[suf]=0;
+          suf++;
+      }
+      else pre=lps[pre-1];
+  }
+  int total=lenmain-clen;
+  cout<<total;
+  string addition;
+  int end=s.size()-1;
+  while(total--){
+      addition+=s[end];
+      end--;
+  }
+  cout<<addition;
+
+  string palindrom=addition+s;
+  cout<<endl<<palindrom;
+    return 0;
+}
