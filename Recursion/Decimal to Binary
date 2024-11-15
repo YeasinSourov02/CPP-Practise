@@ -1,0 +1,25 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+#include<vector>
+#include<algorithm>
+void dectobin(int n,vector<int>&ans){
+    if(n==0){
+    return;
+    }
+    ans.push_back(n%2);
+    dectobin(n/2,ans);
+    
+}
+int main() {
+int n;
+cin>>n;
+if(n==0) cout<<0;
+vector<int>ans;
+dectobin(n,ans);
+reverse(ans.begin(),ans.end());
+for(int i=0;i<ans.size();i++){
+    cout<<ans[i];
+}
+    return 0;
+}
