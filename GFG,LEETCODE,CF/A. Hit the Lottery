@@ -1,0 +1,31 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+int n;
+cin>>n;
+int num[]={100,20,10,5,1};
+int count=0;
+while(n>=num[0]){
+n=n-num[0];
+count++;
+}
+while(n>=num[1]){
+n=n-num[1];
+count++;
+}
+while(n>=num[2]){
+n=n-num[2];
+count++;
+}
+while(n>=num[3]){
+n=n-num[3];
+count++;
+}
+while(n>=num[4]){
+n=n-num[4];
+count++;
+}
+cout<<count;
+    return 0;
+}
