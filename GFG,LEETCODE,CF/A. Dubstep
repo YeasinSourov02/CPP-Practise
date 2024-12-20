@@ -1,0 +1,21 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+   string s;
+   cin>>s;
+   int size=s.size();
+   string ans;
+   for(int i=0;i<size;i++){
+       
+      
+       if(s[i]=='W' && s[i+1]=='U' && s[i+2]=='B'){
+           ans+=' ';
+          i=i+2;
+       }
+       else ans+=s[i];
+       
+   }
+cout<<ans;
+    return 0;
+}
