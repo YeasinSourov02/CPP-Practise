@@ -1,0 +1,40 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+#include<queue>
+class node{
+    public:
+    node* left,*right; 
+    int data;
+    node(int value){
+        data=value;
+        right=left=NULL;
+    }
+};
+
+int main() {
+   int x;
+   cin>>x;
+   queue<node*>q;
+   node* root=new node(x);
+  q.push(root);
+  int leftnode,rightnode;
+  while(!q.empty()){
+      node* temp=q.front();
+      q.pop();
+      cin>>leftnode;
+      if(leftnode!=-1){
+          temp->left=new node(leftnode);
+          q.push(temp->left);
+         
+      }
+       cin>>rightnode;
+          if(rightnode!=-1){
+              temp->right=new node(rightnode);
+              q.push(temp->right);
+          }
+  }
+      
+  
+    return 0;
+}
