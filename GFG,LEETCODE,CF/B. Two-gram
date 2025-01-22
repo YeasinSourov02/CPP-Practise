@@ -1,0 +1,33 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+void find(string b,string s,string &ans,int max2,int i,int &max){
+    for(int j=i;j<s.size()-1;j++){
+        if(s.substr(j,2)==b){
+            max2++;
+            
+        }
+            if(max2>max){
+            ans=b;
+            max=max2;
+            }
+        
+    }
+}
+int main() {
+  int n;
+  cin>>n;
+  string s;
+  cin>>s;
+  int max=0;
+  
+  string ans;
+  string b=" ";
+  for(int i=0;i<s.size()-1;i++){
+      string b=s.substr(i,2);
+      int max2=0;
+      find(b,s,ans,max2,i,max);
+  }
+  cout<<ans;
+    return 0;
+}
