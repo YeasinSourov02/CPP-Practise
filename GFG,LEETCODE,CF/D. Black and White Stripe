@@ -1,0 +1,31 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k;
+        cin>>n>>k;
+        string s;
+        cin>>s;
+        int it=0;
+        int count=0;
+        int ans=INT_MAX;
+        for(int i=0;i<n;i++){
+            if(s[i]=='W') count++;
+            if(i>=k-1){
+                ans=min(ans,count);
+               if( s[it]=='W'){
+                count--;
+               }
+                it++;   
+            }
+            
+            
+        }
+        cout<<ans<<endl;
+    }
+
+    return 0;
+}
