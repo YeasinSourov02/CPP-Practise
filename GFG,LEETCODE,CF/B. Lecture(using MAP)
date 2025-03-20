@@ -1,0 +1,28 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+ int n,m;
+ cin>>n>>m;
+ map<string,string>mp;
+ for(int i=0;i<m;i++){
+     string a,b;
+     cin>>a>>b;
+     if(a.size()<=b.size()){
+         mp[a]=a;
+     }
+     else mp[a]=b;
+     
+ }
+ string ans;
+ for(int i=0;i<n;i++){
+     string lec;
+     cin>>lec;
+     ans+=mp[lec];
+     ans+=' ';
+     
+ }
+ cout<<ans;
+
+    return 0;
+}
