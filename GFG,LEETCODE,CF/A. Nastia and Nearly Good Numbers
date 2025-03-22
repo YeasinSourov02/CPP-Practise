@@ -1,0 +1,25 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+      long long a,b;
+      cin>>a>>b;
+      if(b==1){
+          cout<<"NO\n";
+          continue;
+      }
+      long long z=a*b;
+      long long x=a;
+      long long y=z-x;
+      if(x==y){
+          z=2*a*b;
+          y=z-x;
+      }
+      cout<<"YES\n";
+      cout<<x<<" "<<y<<" "<<z<<endl;
+    }
+    return 0;
+}
