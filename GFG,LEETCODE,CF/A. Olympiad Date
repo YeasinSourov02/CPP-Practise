@@ -1,0 +1,52 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+ int t;
+ cin>>t;
+ while(t--){
+ int total0=3;
+ int total1=1;
+ int total2=2;
+ int total3=1;
+ int  total5=1;
+ int step=0;
+ int n;
+ cin>>n;
+ int input;
+ int flag=0;
+ int c=8;
+ for(int i=0;i<n;i++){
+     cin>>input;
+     if(total0==0 && total1==0 && total2==0 && total3==0 && total5==0){
+         flag=1;
+         break;
+     }
+     if(input==0 && total0>0){
+         total0--;
+         c--;
+     }
+     else if(input==1 && total1>0){
+         total1--;
+         c--;
+     }
+     else if(input==2 && total2>0){
+         total2--;
+         c--;
+     }
+     else if(input==3 && total3>0){
+         total3--;
+         c--;
+     }
+     else if(input==5 && total5>0){
+         total5--;
+         c--;
+     }
+     step++;
+ }
+ if(flag==1 || c==0)cout<<step<<endl;
+ else cout<<0<<endl;
+ }
+ 
+    return 0;
+}
