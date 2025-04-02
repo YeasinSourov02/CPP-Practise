@@ -1,0 +1,21 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int p;
+    cin>>p;
+    vector<int>week(7);
+    for(int i=0;i<7;i++){
+        cin>>week[i];
+    }
+    int d=0;
+    
+   while(p>0){
+    p=p-week[d];
+   d=(d+1)%7;
+    }
+    if(d==0)cout<<7;
+    else cout<<d;
+
+    return 0;
+}
