@@ -1,0 +1,42 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class AS{
+    public:
+    int st;
+    int end;
+};
+bool compare(AS &a,AS &b){
+return a.end<b.end;
+}
+void check(vector<AS>&arr,int &count){
+    count=1;
+    int temp=arr[0].end;
+    for(int i=1;i<arr.size();i++){
+        if(arr[i].st>=temp){
+            count++;
+            temp=arr[i].end;
+        }
+    }
+}
+int main(){
+    int n;
+    cout<<"Enter total number of task\n";
+    cin>>n;
+vector<AS> arr(n);
+for(int i=0;i<n;i++){
+    cin>>arr[i].st;
+    cin>>arr[i].end;
+}
+sort(arr.begin(),arr.end(),compare);
+/*
+for(int i=0;i<n;i++){
+    cout<<arr[i].st<<" "<<arr[i].end;
+    cout<<endl;
+}
+*/
+int count=0;
+check(arr,count);
+cout<<count;
+return 0;
+}
