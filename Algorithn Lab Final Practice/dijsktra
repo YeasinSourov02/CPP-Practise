@@ -1,50 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Solution {
-public:
-    // Function to find the shortest distance of all the vertices
-    // from the source vertex S.
-    vector<int> dijkstra(int V, vector<vector<int>> &matrix, int S) {
-        // Convert adjacency matrix to adjacency list
-        vector<vector<pair<int, int>>> adj(V);
+#define INF 1e9
+
+void dijkstra(int V, vector<vector<int>> &matrix, int S) {
+    vector<int> dist(V, INF);
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+
+    dist[S] = 0;
+    pq.push({0, S});
+
+    while (!pq.empty()) {
+        int node = pq.top().second;
+        int d = pq.top().first;
+        pq.pop();
 
         for (int i = 0; i < V; i++) {
-            for (int j = 0; j < V; j++) {
-                if (matrix[i][j] > 0) { // Assuming 0 means no edge
-                    adj[i].push_back({j, matrix[i][j]});
-                }
+            if (matrix[node][i] > 0 && d + matrix[node][i] < dist[i]) {
+                dist[i] = d + matrix[node][i];
+                pq.push({dist[i], i});
             }
         }
-
-        // Priority queue for storing the nodes as {distance, node}
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-
-        // Distance array initialized to INF
-        vector<int> dist(V, INT_MAX);
-        dist[S] = 0;
-        pq.push({0, S});
-
-        while (!pq.empty()) {
-            int node = pq.top().second;
-            int dis = pq.top().first;
-            pq.pop();
-
-            // Traverse all adjacent nodes
-            for (auto &edge : adj[node]) {
-                int v = edge.first;
-                int w = edge.second;
-
-                if (dis + w < dist[v]) {
-                    dist[v] = dis + w;
-                    pq.push({dist[v], v});
-                }
-            }
-        }
-
-        return dist; // Return shortest distances
     }
-};
+
+    cout << "Shortest distances from node " << S << ":\n";
+    for (int i = 0; i < V; i++) {
+        cout << "To " << i << " = " << dist[i] << "\n";
+    }
+}
 
 int main() {
     int V, S;
@@ -63,13 +46,7 @@ int main() {
     cout << "Enter source vertex: ";
     cin >> S;
 
-    Solution obj;
-    vector<int> res = obj.dijkstra(V, matrix, S);
-
-    cout << "Shortest distances from node " << S << ":\n";
-    for (int i = 0; i < V; i++) {
-        cout << "To " << i << " = " << res[i] << "\n";
-    }
+    dijkstra(V, matrix, S);
 
     return 0;
 }
