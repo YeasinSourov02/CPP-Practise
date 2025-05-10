@@ -1,0 +1,37 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+ int n;
+ cin>>n;
+ map<int,vector<int>>pos;
+ for(int i=0;i<n;i++){
+     int x;
+     cin>>x;
+     pos[x].push_back(i);
+ }
+ vector<pair<int,int>>result;
+ for(auto& p:pos){
+     int x=p.first;
+     vector<int>indices=p.second;
+     if(indices.size()==1){
+         result.push_back({x,0});
+     }
+     else{
+         int d=indices[1]-indices[0];
+         bool valid=true;
+         for(int i=1;i<indices.size();i++){
+             if(indices[i]-indices[i-1]!=d){
+                 valid=false;
+                 break;
+             }
+         }
+         if(valid) result.push_back({x,d});
+     }
+ }
+cout << result.size() << endl;
+    for (auto &p : result) {
+        cout << p.first << " " << p.second << endl;
+    }
+    return 0;
+}
