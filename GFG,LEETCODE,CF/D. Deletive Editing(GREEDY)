@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin >> t;
+    while(t--){
+        string s,f;
+        cin>>s>>f;
+        vector<int>count(26,0);
+        for(int i=0;i<f.size();i++){
+            count[f[i]-'A']++;
+        }
+        string ans="";
+        for(int i=s.size()-1;i>=0;i--){
+            if(count[s[i]-'A']){
+                ans+=s[i];
+                count[s[i]-'A']--;
+            }
+        }
+        reverse(ans.begin(),ans.end());
+        if(ans==f){
+            cout<<"YES\n";
+        }
+        else cout<<"NO\n";
+    }
+    return 0;
+}
