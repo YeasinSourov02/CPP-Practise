@@ -1,0 +1,74 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+int n; // total blocks
+cout << "Enter total number of blocks: ";
+cin >> n;
+
+vector<int> arr(n, 0); // 0 = free
+
+int numberoffiles;
+cout << "Enter number of files to allocate: ";
+cin >> numberoffiles;
+
+for (int i = 1; i <= numberoffiles; i++) {
+int len, st;
+while (true) {
+cout << "Enter length of file " << i << ": ";
+cin >> len;
+
+if (len > n) {
+cout << "Length too big! Try again.\n";
+continue;
+}
+
+cout << "Enter starting block of file " << i << ": ";
+
+cin >> st;
+
+if (st < 0 || st >= n) {
+cout << "Invalid starting block! Try again.\n";
+continue;
+}
+
+if (st + len > n) {
+cout << "File exceeds memory limits! Try again.\n";
+continue;
+}
+
+// Check if blocks are free
+bool canAllocate = true;
+for (int j = st; j < st + len; j++) {
+if (arr[j] != 0) {
+cout << "Block " << j << " is already allocated to file " << arr[j] << ". Allocation failed.\n";
+canAllocate = false;
+break;
+}
+}
+
+if (!canAllocate) {
+cout << "Try different start or length.\n";
+continue;
+}
+
+// Allocate blocks
+for (int j = st; j < st + len; j++) {
+
+arr[j] = i; // Mark block with file number
+}
+
+cout << "File " << i << " allocated successfully from block " << st << " to " << st + len - 1 << ".\n";
+break;
+}
+}
+
+// Show final memory map
+cout << "\nMemory allocation map (block: fileID):\n";
+for (int i = 0; i < n; i++) {
+cout << i << ":" << arr[i] << " ";
+if ((i + 1) % 10 == 0) cout << "\n";
+}
+
+return 0;
+}
