@@ -1,0 +1,120 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// Type aliases
+using ll = long long;
+using vi = vector<int>;
+using vvi = vector<vector<int>>;
+using pii = pair<int, int>;
+using si = set<int>;
+using mi = map<int, int>;
+
+void fastIO() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+}
+
+int main() {
+    fastIO();
+
+    // 🔹 1D Vector: Input and Output
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i) cin >> arr[i];
+    for (int x : arr) cout << x << ' ';
+    cout << "\n";
+
+    // 🔹 2D Vector: Input and Output
+    int rows, cols;
+    cin >> rows >> cols;
+    vector<vector<int>> grid(rows, vector<int>(cols));
+    for (int i = 0; i < rows; ++i)
+        for (int j = 0; j < cols; ++j)
+            cin >> grid[i][j];
+    for (const auto& row : grid) {
+        for (int val : row) cout << val << ' ';
+        cout << '\n';
+    }
+
+    // 🔹 Map: Insert and Fetch
+    map<int, int> freq;
+    for (int x : arr) freq[x]++;
+    for (auto [key, val] : freq)
+        cout << "Value " << key << " appears " << val << " times\n";
+
+    // 🔹 Set: Insert and Check
+    set<int> s;
+    for (int x : arr) s.insert(x);
+    cout << "Unique values: ";
+    for (int x : s) cout << x << ' ';
+    cout << '\n';
+
+    // 🔹 Pair: Declare and Use
+    pair<int, int> p = {10, 20};
+    cout << "Pair: " << p.first << ", " << p.second << '\n';
+
+    // 🔹 Queue: FIFO structure
+    queue<int> q;
+    for (int x : arr) q.push(x);
+    cout << "Queue front: " << q.front() << '\n';
+    q.pop();
+    cout << "After pop, front: " << q.front() << '\n';
+
+    // 🔹 Graph Input (Adjacency List)
+    int nodes, edges;
+    cin >> nodes >> edges;
+    vector<vector<int>> adj(nodes + 1);
+    for (int i = 0; i < edges; ++i) {
+        int u, v;
+        cin >> u >> v;
+        adj[u].push_back(v);
+        adj[v].push_back(u); // Undirected
+    }
+
+    // 🔹 BFS
+    vector<bool> visited(nodes + 1, false);
+    queue<int> bfs_q;
+    bfs_q.push(1);
+    visited[1] = true;
+    cout << "BFS: ";
+    while (!bfs_q.empty()) {
+        int curr = bfs_q.front();
+        bfs_q.pop();
+        cout << curr << ' ';
+        for (int neighbor : adj[curr]) {
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                bfs_q.push(neighbor);
+            }
+        }
+    }
+    cout << '\n';
+
+    // 🔹 DFS
+    visited.assign(nodes + 1, false);
+    function<void(int)> dfs = [&](int node) {
+        visited[node] = true;
+        cout << node << ' ';
+        for (int neighbor : adj[node]) {
+            if (!visited[neighbor]) dfs(neighbor);
+        }
+    };
+    cout << "DFS: ";
+    dfs(1);
+    cout << '\n';
+
+  if (binary_search(arr.begin(), arr.end(), x))
+            cout << x << " is found\n";
+        else
+            cout << x << " is NOT found\n";
+
+        //  Lower Bound: first index with value ≥ x
+        int lb = lower_bound(arr.begin(), arr.end(), x) - arr.begin();
+        cout << "Lower bound index: " << lb << '\n';
+
+        //  Upper Bound: first index with value > x
+        int ub = upper_bound(arr.begin(), arr.end(), x) - arr.begin();
+        cout << "Upper bound index: " << ub << '\n';
+    return 0;
+}
