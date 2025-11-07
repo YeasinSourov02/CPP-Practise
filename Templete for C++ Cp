@@ -18,6 +18,33 @@ for (int i = 0; i < n; i++) {
 
 
 
+//Sliding window
+
+int lengthOfLongestSubstring(string s) {
+    int i = 0, j = 0;
+    int ans = 1;
+    int n = s.size();
+    if (n == 0) return 0;
+
+    map<char, int> mp;
+    mp[s[i]]++;
+
+    while (j < n - 1) {
+        j++;
+
+        while (mp[s[j]] > 0) {
+            mp[s[i]]--;
+            i++;
+        }
+
+        mp[s[j]]++;
+        ans = max(ans, j - i + 1);
+    }
+
+    return ans;
+}
+
+
 
 
 
