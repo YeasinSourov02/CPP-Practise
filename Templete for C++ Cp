@@ -44,7 +44,9 @@ int lengthOfLongestSubstring(string s) {
     return ans;
 }
 
-
+//Storing SubString
+for(int i=0;i<s.size()-2;i++){
+          sub=s.substr(i,3);length 3
 
 
 
